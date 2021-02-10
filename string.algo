@@ -1,0 +1,27 @@
+ALGORITHM STRING_MANIPULATION
+VAR
+    ch: STRING;
+    Nbr_Carct, Nbr_Mots, Nbr_Voyelle: INTEGER;
+BEGIN
+  Write("Saisir votre chaine de caractère: ")
+  Read(ch)
+  IF (ch = "") THEN
+    Write("Saisir une chaine valide SVP: ")
+    Read(ch)
+  END_IF
+
+  Nbr_Carct := 1;
+  WHILE (ch[Nbr_Carct] <> ".") DO
+      IF ((Nbr_Carct > 1) and (ch[Nbr_Carct] = " ")) THEN
+        Nbr_Mots := Nbr_Mots +1;
+      END_IF
+      IF (ch[Nbr_Carct] IN ["a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "Y"]) THEN
+        Nbr_Voyelle := Nbr_Voyelle + 1;
+      END_IF
+      Nbr_Carct := Nbr_Carct + 1;
+  END_WHILE
+  Nbr_Mots := Nbr_Mots + 1;
+  Write("La longeur de la chaine est: " Nbr_Carct)
+  Write("Le nombre des mots dans la chaine est: " Nbr_Mots)
+  Write("Le nombre de voyelle dans la chaine est: " Nbr_Voyelle)
+END
